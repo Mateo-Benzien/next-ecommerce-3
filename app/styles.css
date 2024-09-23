@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+/*.page {
+  /* Add your global styles 
+}*/
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
