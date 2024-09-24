@@ -11,8 +11,8 @@ body {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr); /* Always 4 items per row */
+  gap: 100px; /* Increased gap to 32px for more spacing */
 }
 
 .pagination {
@@ -21,19 +21,44 @@ body {
   padding: 20px 0;
 }
 
-/*.page {
-  /* Add your global styles 
-}*/
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-
 .product-card {
   border: 1px solid #e1e1e1;
   border-radius: 8px;
   padding: 16px;
   text-align: center;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  position: relative; /* For positioning the clear button */
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 40px; /* Add padding to the left for the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.searchInput:focus {
+  border-color: #0070f3; /* Change border color on focus */
+  outline: none;
+}
+
+.clearButton {
+  position: absolute;
+  right: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #0070f3; /* Change color to match your theme */
+}
+
+.clearButton:hover {
+  color: #005bb5; /* Darker shade on hover */
 }
