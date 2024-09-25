@@ -1,18 +1,31 @@
-export const fetchProducts = async (page = 1, searchTerm = "") => {
-  const encodedSearchTerm = encodeURIComponent(searchTerm);
-  const response = await fetch(`https://next-ecommerce-api.vercel.app/products?_page=${page}&_limit=20&title_like=${encodedSearchTerm}`);
-  
+
+export const fetchProducts = async (page = 1, searchQuery = '', category = '', sortBy = '', sortOrder = 'asc') => {
+  const query = new URLSearchParams({
+    skip: (page - 1) * 20,
+    limit: 20,
+    title: searchQuery,
+    category: category,
+    sortBy: sortBy,
+    sortOrder: sortOrder,
+  });
+
+  const response = await fetch(`https://next-ecommerce-api.vercel.app/products?${query}`);
+
   if (!response.ok) {
     throw new Error('Failed to fetch products');
   }
-  
-  return response.json();
+
+  const data = await response.json();
+  return data;
 };
 
 export const fetchProductById = async (id) => {
   const response = await fetch(`https://next-ecommerce-api.vercel.app/products/${id}`);
+  
   if (!response.ok) {
     throw new Error('Failed to fetch product');
   }
-  return response.json();
+
+  const data = await response.json();
+  return data;
 };
